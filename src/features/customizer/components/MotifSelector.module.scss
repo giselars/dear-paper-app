@@ -1,0 +1,89 @@
+.fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  legend {
+    margin-bottom: 10px;
+    padding: 0;
+    color: var(--color-muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.option {
+  position: relative;
+  min-width: 0;
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  input:checked + .card {
+    border: 2px solid var(--color-action);
+    padding: 7px;
+    background: var(--color-selected);
+    color: var(--color-action);
+  }
+
+  input:focus-visible + .card {
+    outline: 2px solid var(--color-action);
+    outline-offset: 4px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 124px;
+  padding: 8px;
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius-control);
+  background: #f9f6f0;
+}
+
+.thumbnail {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 82px;
+  border-radius: 3px;
+  background: #f3e8d4;
+}
+
+.thumbnailImage {
+  object-fit: cover;
+
+  &[data-composition="frame"] {
+    object-fit: fill;
+  }
+}
+
+.name {
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.option:has(input:enabled) {
+  cursor: pointer;
+}
+
+.option:has(input:enabled):hover .card {
+  background: var(--color-selected);
+}

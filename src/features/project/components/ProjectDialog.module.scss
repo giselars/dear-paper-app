@@ -1,0 +1,149 @@
+.dialog {
+  width: min(600px, calc(100% - 48px));
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 40px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 0 16px 48px #25252025;
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &::backdrop {
+    background: #25252066;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  font-family: var(--font-editorial), serif;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.close {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-muted);
+  border-radius: 50%;
+  background: transparent;
+
+  span {
+    width: 18px;
+    height: 18px;
+    background: currentColor;
+    mask: url("/assets/icons/x.svg") center / contain no-repeat;
+  }
+
+  &:hover {
+    background: var(--color-selected);
+  }
+}
+
+.body {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  line-height: 1.5;
+  outline-offset: -2px;
+
+  h2 {
+    font-family: var(--font-editorial), serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.12;
+  }
+}
+
+.eyebrow {
+  color: var(--color-action);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.description {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.scope {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.note {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.return {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--color-action);
+  color: var(--color-on-action);
+  font-size: 14px;
+  font-weight: 600;
+
+  span {
+    width: 17px;
+    height: 17px;
+    background: currentColor;
+    mask: url("/assets/icons/arrow-right.svg") center / contain no-repeat;
+  }
+
+  &:hover {
+    background: var(--color-action-hover);
+  }
+}
+
+@media (max-width: 767px) {
+  .dialog {
+    width: calc(100% - 40px);
+    max-height: calc(100dvh - 40px);
+    padding: 24px;
+  }
+
+  .body h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-height: 480px) {
+  .dialog {
+    padding: 20px;
+
+    &[open] {
+      gap: 16px;
+    }
+  }
+}

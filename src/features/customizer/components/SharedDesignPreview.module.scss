@@ -1,0 +1,144 @@
+.preview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-rows: 1fr auto auto auto auto 1fr;
+  column-gap: 80px;
+  row-gap: 24px;
+  min-height: calc(100svh - 100px);
+  padding: 48px 100px;
+  outline: none;
+}
+
+.preview[data-received] {
+  grid-template-rows: 1fr auto auto 1fr;
+}
+
+.heading {
+  grid-column: 2;
+  grid-row: 2;
+  font-family: var(--font-editorial), serif;
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: 400;
+  outline: none;
+}
+
+.workspace {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  min-width: 0;
+  padding: 32px;
+  background: var(--color-workspace);
+
+  > div {
+    width: min(340px, 100%);
+  }
+
+  figcaption {
+    color: var(--color-workspace-ink);
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+.eyebrow {
+  color: var(--color-workspace-ink);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.description {
+  grid-column: 2;
+  grid-row: 3;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.actions {
+  grid-column: 2;
+  grid-row: 4;
+
+  > div {
+    gap: 12px;
+  }
+  button {
+    min-height: 48px;
+  }
+  p {
+    text-align: left;
+  }
+  p:empty {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+
+.return {
+  grid-column: 2;
+  grid-row: 5;
+  justify-self: start;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 14px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .preview {
+    padding: 32px;
+    column-gap: 32px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+  .workspace {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .preview {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: 0;
+    padding: 24px 20px;
+  }
+  .heading {
+    font-size: 28px;
+  }
+  .return {
+    align-self: flex-start;
+  }
+  .workspace {
+    gap: 24px;
+    padding: 24px 16px;
+    > div {
+      width: min(261.8px, 100%);
+    }
+    figcaption {
+      font-size: 11px;
+    }
+  }
+  .eyebrow,
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: inline;
+  }
+}

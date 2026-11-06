@@ -1,0 +1,28 @@
+.workshop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 426px;
+  align-items: stretch;
+  gap: 42px;
+  padding-inline: var(--page-gutter);
+
+  @media (max-width: 1100px) {
+    grid-template-columns: minmax(0, 1fr) 358px;
+    gap: 24px;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+}
+
+.panelColumn {
+  min-width: 0;
+}
+
+.status {
+  margin-bottom: 16px;
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}

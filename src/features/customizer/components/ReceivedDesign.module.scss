@@ -1,0 +1,24 @@
+.error {
+  display: grid;
+  gap: 24px;
+  max-width: 680px;
+  margin-inline: auto;
+  padding: 48px var(--page-gutter);
+  outline: none;
+
+  h1 {
+    font-family: var(--font-editorial), serif;
+    font-size: 32px;
+    font-weight: 400;
+  }
+  p {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  a {
+    justify-self: start;
+    color: var(--color-action);
+    padding-block: 12px;
+  }
+}

@@ -1,0 +1,82 @@
+.screen {
+  min-height: 100svh;
+  padding: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  text-align: center;
+  background: var(--color-paper);
+
+  @media (max-width: 767px) {
+    padding: 24px;
+  }
+}
+
+.descriptor {
+  color: var(--color-muted);
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  font-family: var(--font-editorial), Georgia, serif;
+  font-size: 76px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  @media (max-width: 767px) {
+    font-size: clamp(46px, 13.85vw, 54px);
+  }
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  background: var(--color-action);
+  mask: url("/assets/icons/loader-circle.svg") center / contain no-repeat;
+  animation: rotate 1s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.status {
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.signature {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.retry {
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: var(--radius-control);
+  background: var(--color-action);
+  color: var(--color-on-action);
+
+  &:hover {
+    background: var(--color-action-hover);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}

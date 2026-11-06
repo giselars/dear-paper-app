@@ -1,0 +1,10 @@
+.footer {
+  padding: 26px var(--page-gutter);
+  color: var(--color-muted);
+  font-size: 12px;
+  line-height: 1.6;
+
+  @media (max-width: 767px) {
+    padding-block: 30px;
+  }
+}
